@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Anos ao lado da Mulher da minha Vida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 20px;
+            height: 600vh;
+            background-color: #040257;
+            margin: 20px;
+            color: white; /* Define a cor do texto para branco */
+        }
+        .carousel {
+            width: 1000px;
+            height: 900px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 20px;
+        }
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: opacity 3s ease;
+        }
+        .carousel img.inactive {
+            opacity: 0;
+        }
+        .contador {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .linha-grossa {
+            border: 5px solid rgb(70, 70, 70); /* Largura e cor da linha */
+            width: 75%; /* Largura da linha */
+            margin: 20px; /* Espaçamento acima e abaixo da linha e centralização */
+        }
+        .Texto {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 40px;
+            text-align: center;
+            font-size: 35px; /* Correção do tamanho da fonte */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 1000px; /* Mesma largura do carrossel */
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>3 Anos ao lado da Mulher da minha Vida</h1>
+    <div class="carousel">
+        <img src="unnamed.jpg" alt="Foto 1" class="active">
+        <img src="sexisdeath-1725762467-3452268251654232310-8652008389.avif" alt="Foto 2" class="inactive">
+        <img src="entretenimento-the-weeknd-1725459467.jpg" alt="Foto 3" class="inactive">
+        <img src="download (1).jpg" alt="Foto 4" class="inactive">
+        <img src="download (3).jpg" alt="Foto 5" class="inactive">
+        <img src="download (4).jpg" alt="Foto 6" class="inactive">
+        <img src="download (5).jpg" alt="Foto 7" class="inactive">
+        <img src="download (6).jpg" alt="Foto 8" class="inactive">
+        <img src="download (7).jpg" alt="Foto 9" class="inactive">
+        <img src="download (8).jpg" alt="Foto 10" class="inactive">
+        <img src="download.jpg" alt="Foto 11" class="inactive">
+        <img src="images (1).jpg" alt="Foto 12" class="inactive">
+        <img src="images (2).jpg" alt="Foto 13" class="inactive">
+        <img src="images.jpg" alt="Foto 14" class="inactive">
+    </div>
+    <h1>Juntas</h1>
+    <div class="contador">
+        <p id="contador"></p>
+    </div>
+    <script>
+        let index = 0;
+        function showNextImage() {
+            const images = document.querySelectorAll('.carousel img');
+            images[index].classList.add('inactive');
+            index = (index + 1) % images.length;
+            images[index].classList.remove('inactive');
+        }
+        setInterval(showNextImage, 3000); // Muda a imagem a cada 3 segundos
+
+        function calcularDiferenca(dataInicial) {
+            const agora = new Date();
+            const dataInicialDate = new Date(dataInicial);
+            let anos = agora.getFullYear() - dataInicialDate.getFullYear();
+            let meses = agora.getMonth() - dataInicialDate.getMonth();
+            let dias = agora.getDate() - dataInicialDate.getDate();
+            let horas = agora.getHours() - dataInicialDate.getHours();
+            let minutos = agora.getMinutes() - dataInicialDate.getMinutes();
+            let segundos = agora.getSeconds() - dataInicialDate.getSeconds();
+
+            if (segundos < 0) {
+                segundos += 60;
+                minutos--;
+            }
+            if (minutos < 0) {
+                minutos += 60;
+                horas--;
+            }
+            if (horas < 0) {
+                horas += 24;
+                dias--;
+            }
+            if (dias < 0) {
+                meses--;
+                const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+                dias += ultimoDiaMesAnterior;
+            }
+            if (meses < 0) {
+                meses += 12;
+                anos--;
+            }
+            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+
+        function atualizarContador() {
+            const dataInicial = '2021-12-18T00:00:00'; // Data inicial
+            document.getElementById('contador').innerText = calcularDiferenca(dataInicial);
+        }
+
+        setInterval(atualizarContador, 1000);
+    </script>
+<div class="Texto">
+        <hr class="linha-grossa"> <!-- Linha grossa inserida aqui -->
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis pariatur non quidem!
+            Adipisci deserunt mollitia labore consequatur tempora rerum neque soluta doloremque
+            inventore quidem, necessitatibus asperiores! Odit quis libero mollitia! Lorem ipsum
+            dolor sit, amet consectetur adipisicing elit. Ex assumenda dignissimos quas! Fugit
+            sequi facere obcaecati magni, dignissimos perferendis! Inventore assumenda nemo
+            pariatur magni ad debitis corporis velit eligendi hic?Lorem ipsum, dolor sit
+            amet consectetur adipisicing elit. Vitae nobis earum laborum veniam amet
+            aspernatur assumenda, saepe deleniti voluptatibus facere molestias voluptas
+            accusamus animi quam est libero eius numquam dolores. Lorem ipsum dolor,
+            sit amet consectetur adipisicing elit. Molestias harum ullam dolore, et
+            autem id reiciendis, cum ad praesentium, repellendus neque molestiae laborum.
+            Ut neque accusamus, explicabo molestias necessitatibus accusantium! Lorem
+            ipsum dolor sit amet consectetur adipisicing elit. Culpa neque officia harum
+            soluta ut repellendus et dicta ipsam nobis eos illo enim dolorem, voluptate
+            maxime ducimus nesciunt unde voluptatibus necessitatibus. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Dicta et officia ullam, eius eaque
+            libero voluptates, doloremque totam exercitationem sed dolore cum fuga laborum
+            quidem dolorum error hic? Nostrum, illum! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Molestiae, inventore eos quidem aspernatur veniam consequatur
+            repellat beatae saepe id libero dignissimos vero quasi reprehenderit nesciunt
+            ipsum et magnam a? Similique! Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Officia velit quas quos, ratione at, adipisci deserunt in quasi ipsa
+            ducimus quia exercitationem? Quia, quas amet minus voluptatum voluptatibus
+            optio repudiandae. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Itaque velit minus similique ratione nulla, ipsum odio et porro. Aliquid a,
+            repellendus minus alias animi necessitatibus hic voluptatem ea officiis est
+            ! Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ipsam veniam.
+            Laboriosam aliquid blanditiis incidunt accusantium impedit rerum doloribus recusandae
+            nam! Nesciunt culpa dolorum dolore eaque repellendus impedit illo ipsum.</p>
+        </div>
+    </body>
+    </html>
