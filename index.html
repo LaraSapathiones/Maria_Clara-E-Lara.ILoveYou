@@ -11,15 +11,16 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            font-size: 20px;
-            height: 600vh;
+            min-height: 100vh;
             background-color: #040257;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
             color: white; /* Define a cor do texto para branco */
         }
         .carousel {
-            width: 1000px;
-            height: 900px;
+            width: 100%;
+            max-width: 1000px;
+            height: 900px; /* Altura fixa para o carrossel */
             overflow: hidden;
             position: relative;
             margin-top: 20px;
@@ -30,21 +31,26 @@
             position: absolute;
             left: 0;
             top: 0;
-            transition: opacity 3s ease;
+            transition: opacity 3s ease-in-out; /* Transição suave */
         }
         .carousel img.inactive {
             opacity: 0;
+            z-index: 1;
+        }
+        .carousel img.active {
+            opacity: 1;
+            z-index: 2;
         }
         .contador {
             text-align: center;
-            font-size: 30px;
+            font-size: 30px; /* Aumenta o tamanho da fonte do contador */
             font-weight: bold;
             margin-top: 20px;
         }
         .linha-grossa {
             border: 5px solid rgb(70, 70, 70); /* Largura e cor da linha */
-            width: 75%; /* Largura da linha */
-            margin: 20px; /* Espaçamento acima e abaixo da linha e centralização */
+            width: 75%; /* Ajuste da largura da linha */
+            margin: 20px auto; /* Centralização da linha */
         }
         .Texto {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -55,89 +61,55 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            width: 1000px; /* Mesma largura do carrossel */
+            width: 100%;
+            max-width: 1000px; /* Mesma largura do carrossel */
         }
-       
+        @keyframes rain {
+            0% {
+                transform: translateY(-100%);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            transform: rotate(45deg);
+            opacity: 0.7;
+            animation: rain 5s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -25px;
+            left: 0;
+        }
+        .heart::after {
+            left: 25px;
+            top: 0;
+        }
+        .rain-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+        }
     </style>
-</head>
-<body>
-    <h1>3 Anos ao lado da Mulher da minha Vida</h1>
-    <div class="carousel">
-        <img src="20231218_102852.jpg" alt="Foto 1" class="inactive">
-        <img src="IMG-20230803-WA0009.jpg" alt="Foto 2" class="inactive">
-        <img src="IMG-20231111-WA0013.jpg" alt="Foto 3" class="inactive">
-        <img src="IMG-20231111-WA0016.jpg" alt="Foto 4" class="inactive">
-        <img src="IMG-20231203-WA0017.jpg" alt="Foto 5" class="inactive">
-        <img src="IMG-20231216-WA0053.jpg" alt="Foto 6" class="inactive">
-        <img src="IMG-20240101-WA0025.jpg" alt="Foto 7" class="inactive">
-        <img src="IMG-20240101-WA0067.jpg" alt="Foto 8" class="inactive">
-        <img src="IMG-20240303-WA0007.jpg" alt="Foto 9" class="inactive">
-        <img src="IMG-20240310-WA0007.jpg" alt="Foto 10" class="inactive">
-        <img src="IMG-20240616-WA0002.jpg" alt="Foto 11" class="inactive">
-        <img src="IMG-20240616-WA0008.jpg" alt="Foto 12" class="inactive">
-        <img src="IMG-20240616-WA0010.jpg" alt="Foto 13" class="inactive">
-        <img src="IMG-20240804-WA0093.jpg" alt="Foto 14" class="inactive">
-        <img src="IMG_20231216_201054_803.jpg" alt="Foto 15" class="inactive">
-        <img src="PSX_20240213_211437.jpg" alt="Foto 16" class="inactive">
-        <img src="PSX_20240425_072704.jpg" alt="Foto 17" class="inactive">
-        <img src="PSX_20240909_084839.jpg" alt="Foto 18" class="inactive"> 
-    </div>
-    <h1>Juntas</h1>
-    <div class="contador">
-        <p id="contador"></p>
-    </div>
-    <script>
-        let index = 0;
-        function showNextImage() {
-            const images = document.querySelectorAll('.carousel img');
-            images[index].classList.add('inactive');
-            index = (index + 1) % images.length;
-            images[index].classList.remove('inactive');
-        }
-        setInterval(showNextImage, 3000); // Muda a imagem a cada 3 segundos
-
-        function calcularDiferenca(dataInicial) {
-            const agora = new Date();
-            const dataInicialDate = new Date(dataInicial);
-            let anos = agora.getFullYear() - dataInicialDate.getFullYear();
-            let meses = agora.getMonth() - dataInicialDate.getMonth();
-            let dias = agora.getDate() - dataInicialDate.getDate();
-            let horas = agora.getHours() - dataInicialDate.getHours();
-            let minutos = agora.getMinutes() - dataInicialDate.getMinutes();
-            let segundos = agora.getSeconds() - dataInicialDate.getSeconds();
-
-            if (segundos < 0) {
-                segundos += 60;
-                minutos--;
-            }
-            if (minutos < 0) {
-                minutos += 60;
-                horas--;
-            }
-            if (horas < 0) {
-                horas += 24;
-                dias--;
-            }
-            if (dias < 0) {
-                meses--;
-                const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
-                dias += ultimoDiaMesAnterior;
-            }
-            if (meses < 0) {
-                meses += 12;
-                anos--;
-            }
-            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, e ${segundos} segundos`;
-        }
-
-        function atualizarContador() {
-            const dataInicial = '2021-12-18T00:00:00'; // Data inicial
-            document.getElementById('contador').innerText = calcularDiferenca(dataInicial);
-        }
-
-        setInterval(atualizarContador, 1000);
-    </script>
-<div class="Texto">
+    <div class="Texto">
         <hr class="linha-grossa"> <!-- Linha grossa inserida aqui -->
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis pariatur non quidem!
