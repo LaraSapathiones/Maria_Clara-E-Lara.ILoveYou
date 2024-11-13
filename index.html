@@ -109,6 +109,94 @@
             pointer-events: none;
         }
     </style>
+</head>
+<body>
+    <h1>3 Anos ao lado da Mulher da minha Vida</h1>
+    <div class="carousel">
+        <img src="" alt="Foto 1" class="active">
+        <img src="" alt="Foto 2" class="inactive">
+        <img src="" alt="Foto 3" class="inactive">
+        <img src="" alt="Foto 4" class="inactive">
+        <img src="" alt="Foto 5" class="inactive">
+        <img src="" alt="Foto 6" class="inactive">
+        <img src="" alt="Foto 7" class="inactive">
+        <img src="" alt="Foto 8" class="inactive">
+        <img src="" alt="Foto 9" class="inactive">
+        <img src="" alt="Foto 10" class="inactive">
+        <img src="" alt="Foto 11" class="inactive">
+        <img src="" alt="Foto 12" class="inactive">
+        <img src="" alt="Foto 13" class="inactive">
+        <img src="" alt="Foto 14" class="inactive">
+        <img src="" alt="Foto 15" class="inactive">
+        <img src="" alt="Foto 16" class="inactive">
+        <img src="" alt="Foto 17" class="inactive">
+        <img src="" alt="Foto 18" class="inactive">
+        <img src="" alt="Foto 19" class="inactive">
+        <img src="" alt="Foto 20" class="inactive">
+    </div>
+    <div class="rain-container">
+        <!-- Corações são gerados aqui -->
+        <div class="heart" style="left: 20%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 60%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 80%; animation-delay: 3s;"></div>
+    </div>
+    <div class="contador">
+        <h2>Juntas</h2>
+        <p id="contador"></p>
+    </div>
+    <script>
+        let index = 0;
+        function showNextImage() {
+            const images = document.querySelectorAll('.carousel img');
+            images[index].classList.remove('active');
+            images[index].classList.add('inactive');
+            index = (index + 1) % images.length;
+            images[index].classList.remove('inactive');
+            images[index].classList.add('active');
+        }
+        setInterval(showNextImage, 3000); // Muda a imagem a cada 3 segundos
+
+        function calcularDiferenca(dataInicial) {
+            const agora = new Date();
+            const dataInicialDate = new Date(dataInicial);
+            let anos = agora.getFullYear() - dataInicialDate.getFullYear();
+            let meses = agora.getMonth() - dataInicialDate.getMonth();
+            let dias = agora.getDate() - dataInicialDate.getDate();
+            let horas = agora.getHours() - dataInicialDate.getHours();
+            let minutos = agora.getMinutes() - dataInicialDate.getMinutes();
+            let segundos = agora.getSeconds() - dataInicialDate.getSeconds();
+            if (segundos < 0) {
+                segundos += 60;
+                minutos--;
+            }
+            if (minutos < 0) {
+                minutos += 60;
+                horas--;
+            }
+            if (horas < 0) {
+                horas += 24;
+                dias--;
+            }
+            if (dias < 0) {
+                meses--;
+                const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+                dias += ultimoDiaMesAnterior;
+            }
+            if (meses < 0) {
+                meses += 12;
+                anos--;
+            }
+            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+
+        function atualizarContador() {
+            const dataInicial = '2021-12-18T00:00:00'; // Data inicial
+            document.getElementById('contador').innerText = calcularDiferenca(dataInicial);
+        }
+
+        setInterval(atualizarContador, 1000);
+    </script>
     <div class="Texto">
         <hr class="linha-grossa"> <!-- Linha grossa inserida aqui -->
         <p>
@@ -140,7 +228,8 @@
             repellendus minus alias animi necessitatibus hic voluptatem ea officiis est
             ! Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ipsam veniam.
             Laboriosam aliquid blanditiis incidunt accusantium impedit rerum doloribus recusandae
-            nam! Nesciunt culpa dolorum dolore eaque repellendus impedit illo ipsum.</p>
-        </div>
-    </body>
-    </html>
+            nam! Nesciunt culpa dolorum dolore eaque repellendus impedit illo ipsum.
+        </p>
+    </div>
+</body>
+</html>
