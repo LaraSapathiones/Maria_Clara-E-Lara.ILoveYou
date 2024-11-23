@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 Anos ao lado da Mulher da minha Vida</title>
     <style>
-        .body {
+        body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -17,66 +16,49 @@
             margin: 0;
             padding: 20px;
             color: white; /* Define a cor do texto para branco */
+            font-size: 27px; /* Diminui o tamanho da fonte */
+        }
+        .Titulo {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 40px;
         }
         .carousel {
             width: 100%;
-            height: 400px;
+            max-width: 1000px;
+            height: 900px; /* Altura ajustada para o carrossel */
+            overflow: hidden;
             position: relative;
+            margin-top: 20px;
         }
-        .slides {
+        .carousel img {
             width: 100%;
             height: 100%;
             position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
-
-        .slide {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            display: none;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .navigation {
-            width: 100%;
-            height: 50px;
-            position: absolute;
-            bottom: 0;
-            display: flex;
-            justify-content: center;
-        }
-        .navigation label {
-            width: 20px;
-            height: 20px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 10px;
-            cursor: pointer;
-        }
-        #slide1:checked ~ .slides .slide:nth-child(1),
-        #slide2:checked ~ .slides .slide:nth-child(2),
-        #slide3:checked ~ .slides .slide:nth-child(3) {
-        display: block;
+        .carousel img.active {
+            opacity: 1;
         }
         .contador {
             text-align: center;
-            font-size: 30px; /* Aumenta o tamanho da fonte do contador */
+            font-size: 24px; /* Tamanho da fonte ajustado */
             font-weight: bold;
             margin-top: 20px;
         }
         .linha-grossa {
             border: 5px solid rgb(70, 70, 70); /* Largura e cor da linha */
-            width: 75%; /* Ajuste da largura da linha */
+            width: 80%; /* Ajuste da largura da linha */
             margin: 20px auto; /* Centralização da linha */
         }
         .Texto {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin: 40px;
             text-align: center;
-            font-size: 35px; /* Correção do tamanho da fonte */
+            font-size: 27px; /* Correção do tamanho da fonte */
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -131,27 +113,26 @@
     </style>
 </head>
 <body>
-    <h1>3 Anos ao lado da Mulher da minha Vida</h1>
+    <h1 class="Titulo">3 Anos ao lado da Mulher da minha Vida</h1>
     <div class="carousel">
-      <input type="radio" name="carousel" id="slide1" checked>
-      <input type="radio" name="carousel" id="slide2">
-      <input type="radio" name="carousel" id="slide3">
-      <div class="slides">
-        <div class="slide">
-          <img src="image1.jpg" alt="Slide 1">
-        </div>
-        <div class="slide">
-          <img src="image2.jpg" alt="Slide 2">
-        </div>
-        <div class="slide">
-          <img src="image3.jpg" alt="Slide 3">
-        </div>
+        <img src="unnamed.jpg" alt="Foto 1" class="active">
+        <img src="sexisdeath-1725762467-3452268251654232310-8652008389.avif" alt="Foto 2">
+        <img src="entretenimento-the-weeknd-1725459467.jpg" alt="Foto 3">
+        <img src="download (1).jpg" alt="Foto 4">
+        <img src="download (3).jpg" alt="Foto 5">
+        <img src="download (4).jpg" alt="Foto 6">
+        <img src="download (5).jpg" alt="Foto 7">
+        <img src="download (6).jpg" alt="Foto 8">
+        <img src="download (7).jpg" alt="Foto 9">
+        <img src="download (8).jpg" alt="Foto 10">
+        <img src="download.jpg" alt="Foto 11">
+        <img src="images (1).jpg" alt="Foto 12">
+        <img src="images (2).jpg" alt="Foto 13">
+        <img src="images.jpg" alt="Foto 14">
     </div>
-  <div class="navigation">
-        <label for="PSX_20240909_084839.jpg"></label>
-        <label for="PSX_20240425_072704.jpg"></label>
-        <label for="PSX_20240213_211437.jpg"></label>
-        </div>
+    <h2>Juntas</h2>
+    <div class="contador">
+        <p id="contador"></p>
     </div>
     <div class="rain-container">
         <!-- Corações são gerados aqui -->
@@ -160,18 +141,12 @@
         <div class="heart" style="left: 60%; animation-delay: 2s;"></div>
         <div class="heart" style="left: 80%; animation-delay: 3s;"></div>
     </div>
-    <div class="contador">
-        <h2>Juntas</h2>
-        <p id="contador"></p>
-    </div>
     <script>
         let index = 0;
+        const images = document.querySelectorAll('.carousel img');
         function showNextImage() {
-            const images = document.querySelectorAll('.carousel img');
             images[index].classList.remove('active');
-            images[index].classList.add('inactive');
             index = (index + 1) % images.length;
-            images[index].classList.remove('inactive');
             images[index].classList.add('active');
         }
         setInterval(showNextImage, 3000); // Muda a imagem a cada 3 segundos
@@ -234,6 +209,8 @@
             ipsum dolor sit amet consectetur adipisicing elit. Culpa neque officia harum
             soluta ut repellendus et dicta ipsam nobis eos illo enim dolorem, voluptate
             maxime ducimus nesciunt unde voluptatibus necessitatibus. Lorem ipsum dolor
+            sit amet consectetur adipisicing elit. Dicta et officia ullam, eius eaque
+            libero voluptates necessitatibus. Lorem ipsum dolor
             sit amet consectetur adipisicing elit. Dicta et officia ullam, eius eaque
             libero voluptates, doloremque totam exercitationem sed dolore cum fuga laborum
             quidem dolorum error hic? Nostrum, illum! Lorem ipsum dolor sit amet consectetur
