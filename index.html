@@ -12,11 +12,11 @@
             justify-content: flex-start;
             align-items: center;
             min-height: 100vh;
-            background-color: #040257;
+            background-color: #020141;
             margin: 0;
             padding: 20px;
             color: white; /* Define a cor do texto para branco */
-            font-size: 20px; /* Diminui o tamanho da fonte */
+            font-size: 25px; /* Diminui o tamanho da fonte */
         }
         .Titulo {
             font-family: Arial, Helvetica, sans-serif;
@@ -51,6 +51,12 @@
             position: relative;
             margin-top: 20px;
         }
+        .contador {
+            text-align: center;
+            font-size: 30px; /* Aumenta o tamanho da fonte do contador */
+            font-weight: bold;
+            margin-top: 20px;
+        }
         .linha-grossa {
             border: 5px solid rgb(70, 70, 70); /* Largura e cor da linha */
             width: 80%; /* Ajuste da largura da linha */
@@ -58,15 +64,15 @@
         }
         .Texto {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            margin: 50px;
+            margin: 40px;
             text-align: justify;
-            font-size: 27px; /* Correção do tamanho da fonte */
+            font-size: 25px; /* Correção do tamanho da fonte */
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             width: 100%;
-            max-width: 800px; /* Mesma largura do carrossel */
+            max-width: 950px; /* Mesma largura do carrossel */
         }
         @keyframes rain {
             0% {
@@ -116,13 +122,13 @@
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             margin: 40px;
             text-align: justify;
-            font-size: 30px; /* Correção do tamanho da fonte */
+            font-size: 29px; /* Correção do tamanho da fonte */
             font-weight: bold;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            width: 1000px; /* Mesma largura do carrossel */
+            width: 950px; /* Mesma largura do carrossel */
             color: rgb(150, 145, 145);
         }
     </style>
@@ -168,7 +174,7 @@
         <div class="heart" style="left: 60%; animation-delay: 2s;"></div>
         <div class="heart" style="left: 80%; animation-delay: 3s;"></div>
     </div>
-     <h2>Juntas</h2>
+    <h2>Juntas</h2>
     <div class="contador">
         <p id="contador"></p>
     </div>
@@ -212,7 +218,7 @@
                 meses += 12;
                 anos--;
             }
-            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
         }
 
         function atualizarContador() {
@@ -266,3 +272,4 @@
         </div>
 </body>
 </html>
+
