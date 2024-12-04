@@ -112,6 +112,10 @@
             left: 25px;
             top: 0;
         }
+        .juntas {
+            font-size: 25px;
+            font-weight: bold;
+        }
         .rain-container {
             position: absolute;
             top: 0;
@@ -174,7 +178,7 @@
         <div class="heart" style="left: 60%; animation-delay: 2s;"></div>
         <div class="heart" style="left: 80%; animation-delay: 3s;"></div>
     </div>
-    <h2>Juntas</h2>
+    <h2 class="juntas">Juntas</h2>
     <div class="contador">
         <p id="contador"></p>
     </div>
@@ -219,7 +223,7 @@
                 anos--;
             }
             return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas,
-            ${minutos} minutos e ${segundos} segundos`;
+            ${minutos} minutos e ${segundos} segundos.`;
         }
 
         function atualizarContador() {
