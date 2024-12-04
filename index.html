@@ -57,6 +57,7 @@
             font-weight: bold;
             margin-top: 20px;
             display: flex;
+            max-width: 800px;
         }
         .linha-grossa {
             border: 5px solid rgb(70, 70, 70); /* Largura e cor da linha */
@@ -217,7 +218,8 @@
                 meses += 12;
                 anos--;
             }
-            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`;
+            return `${anos} anos, ${meses} meses, ${dias} dias, ${horas} horas,
+            ${minutos} minutos e ${segundos} segundos`;
         }
 
         function atualizarContador() {
